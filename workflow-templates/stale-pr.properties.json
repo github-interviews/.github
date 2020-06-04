@@ -1,0 +1,6 @@
+{
+    "name": "Stale",
+    "description": "Remind reviewers to review candidate submissions",
+    "iconName": "octicon clock",
+    "categories": ["Automation", "SDLC"]
+}
