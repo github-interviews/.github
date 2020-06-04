@@ -1,0 +1,23 @@
+# This stale workflow should be used on interview repositories to help reviewers
+# get to reviewing candidates submissions. It only runs on PRs and not issues.
+name: Mark stale pull requests
+
+on:
+  schedule:
+  - cron: "1 23 * * *"
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/stale@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-pr-message: "👋 This candidates submission is in the queue and we'd like to get reviews done quickly to keep the process moving. If you are unable, please ping the hiring manager and we'll find someone else."
+        stale-pr-label: 'no-pr-activity'
+        # This is how long we'll wait before reminding everyone 
+        # that a candidates PR needs reviewing.
+        days-before-stale: 3
+        days-before-close: 5
